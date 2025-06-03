@@ -1,0 +1,26 @@
+{
+  "name": "lochmueller/securitytxt",
+  "type": "typo3-cms-extension",
+  "description": "security.txt integration",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "HDNET\\SecurityTxt\\": "Classes/"
+    }
+  },
+  "require": {
+    "php": "^8.3",
+    "typo3/cms-core": "^13.4"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "securitytxt",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  }
+}
