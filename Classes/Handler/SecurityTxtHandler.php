@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HDNET\SecurityTxt\Handler;
 
 use HDNET\SecurityTxt\Middleware\SecurityTxtMiddleware;
@@ -8,6 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Core\Site\Entity\SiteInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SecurityTxtHandler implements RequestHandlerInterface
 {
@@ -15,27 +18,18 @@ class SecurityTxtHandler implements RequestHandlerInterface
     {
         $siteConfiguration = $this->getSiteConfiguration($request);
 
-        $config = $siteConfiguration;
-
         $lines = [];
-
-        // @todo use right site setting fields
-        if (!empty($config['contact'])) {
-            foreach ((array)$config['contact'] as $contact) {
-                $lines[] = 'Contact: ' . $contact;
+        foreach (['contact', 'encryption', 'acknowledgments', 'policy', 'hiring', 'csaf'] as $field) {
+            if (!empty($siteConfiguration['securitytxt' . ucfirst($field)])) {
+                $values = GeneralUtility::trimExplode(',', $siteConfiguration['securitytxt' . ucfirst($field)], true);
+                foreach ($values as $item) {
+                    $lines[] = ucfirst($field) . ': ' . $item;
+                }
             }
         }
 
-        // @todo use right site setting fields
-        foreach (['encryption', 'acknowledgments', 'policy', 'hiring'] as $field) {
-            if (!empty($config[$field])) {
-                $lines[] = ucfirst($field) . ': ' . $config[$field];
-            }
-        }
-
-        // @todo use right site setting fields
-        if (!empty($config['preferredLanguages'])) {
-            $lines[] = 'Preferred-Languages: ' . $config['preferredLanguages'];
+        if (!empty($siteConfiguration['securitytxtPreferredLanguages'])) {
+            $lines[] = 'Preferred-Languages: ' . $siteConfiguration['securitytxtPreferredLanguages'];
         }
 
         // Add technical field: canonical
@@ -44,8 +38,8 @@ class SecurityTxtHandler implements RequestHandlerInterface
         $lines[] = 'Canonical: ' . $site->getBase()->withPath(SecurityTxtMiddleware::SECURITY_TXT_PATH);
 
         // Add technical field: expires
-        // @todo check "relative buf fixed date" with Expires header and encryption option
-        $date = (new \DateTimeImmutable())->modify('last day of next month');
+        $relativeDate = $siteConfiguration['securitytxtRelativeDate'] ?? 'last day of next month';
+        $date = (new \DateTimeImmutable())->modify($relativeDate)->setTime(12, 0);
         $lines[] = 'Expires: ' . $date->format(\DateTime::RFC3339);
 
         return $this->buildTxtResponse(implode("\n", $lines) . "\n");

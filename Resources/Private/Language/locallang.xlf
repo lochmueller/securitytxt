@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z"
+          product-name="securitytxt">
+        <header/>
+        <body>
+            <trans-unit id="securitytxt">
+                <source>security.txt</source>
+            </trans-unit>
+            <trans-unit id="contact">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="contact.description">
+                <source>URI or mailto:xxx entries.. Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="encryption">
+                <source>Encryption</source>
+            </trans-unit>
+            <trans-unit id="encryption.description">
+                <source>URI of your OpenPGP key. Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="acknowledgments">
+                <source>Acknowledgments</source>
+            </trans-unit>
+            <trans-unit id="acknowledgments.description">
+                <source>URI to the security acknowledgment page. Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="policy">
+                <source>Policy</source>
+            </trans-unit>
+            <trans-unit id="policy.description">
+                <source>URI to the security policy page. Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="hiring">
+                <source>Hiring</source>
+            </trans-unit>
+            <trans-unit id="hiring.description">
+                <source>URI to the hiring page. Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="csaf">
+                <source>CSAF</source>
+            </trans-unit>
+            <trans-unit id="csaf.description">
+                <source>URI to the provider metadata.json of your CSAF provider.  Remember to include https:// in the URIs. Separated multiple values with ",".</source>
+            </trans-unit>
+            <trans-unit id="preferredLanguages">
+                <source>Preferred languages</source>
+            </trans-unit>
+            <trans-unit id="preferredLanguages.description">
+                <source>Languages you prefer in the communication. You can list multiple languages like "en, de".</source>
+            </trans-unit>
+            <trans-unit id="relativeDate">
+                <source>Relative date</source>
+            </trans-unit>
+            <trans-unit id="relativeDate.description">
+                <source>The relative date of the Expires field in the security.txt file. Default ist "last day of next month".</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

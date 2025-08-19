@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HDNET\SecurityTxt\Middleware;
 
 use HDNET\SecurityTxt\Handler\SecurityTxtHandler;
