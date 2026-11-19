@@ -3,7 +3,7 @@
 $lll = 'LLL:EXT:securitytxt/Resources/Private/Language/locallang.xlf:';
 
 
-$regularFields = ['contact', 'encryption', 'acknowledgments', 'policy', 'hiring', 'preferredLanguages', 'relativeDate'];
+$regularFields = ['contact', 'encryption', 'acknowledgments', 'policy', 'hiring', 'csaf', 'preferredLanguages', 'relativeDate'];
 
 foreach ($regularFields as $field) {
     $GLOBALS['SiteConfiguration']['site']['columns']['securitytxt' . ucfirst($field)] = [

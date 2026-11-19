@@ -1,7 +1,7 @@
 {
   "name": "lochmueller/securitytxt",
   "type": "typo3-cms-extension",
-  "description": "security.txt integration",
+  "description": "security.txt integration - Integration the security.txt standard into TYPO3",
   "license": "GPL-2.0-or-later",
   "autoload": {
     "psr-4": {
@@ -10,14 +10,19 @@
   },
   "require": {
     "php": "^8.3",
-    "typo3/cms-core": "^13.4"
+    "typo3/cms-core": "^13.4 || ^14.3",
+    "typo3/cms-frontend": "^13.4 || ^14.3"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.84"
+    "friendsofphp/php-cs-fixer": "^3.95"
   },
   "extra": {
     "typo3/cms": {
       "extension-key": "securitytxt",
+      "version": "0.1.0",
+      "Package": {
+        "providesPackages": {}
+      },
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": ".Build/Web"
     }
