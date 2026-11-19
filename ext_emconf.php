@@ -4,7 +4,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'security.txt integration',
     'description' => 'Integration the security.txt standard into TYPO3',
-    'version' => '0.2.0',
+    'version' => '0.3.0',
     'category' => 'fe',
     'constraints' => [
         'depends' => [
