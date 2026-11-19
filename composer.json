@@ -19,7 +19,6 @@
   "extra": {
     "typo3/cms": {
       "extension-key": "securitytxt",
-      "version": "0.1.0",
       "Package": {
         "providesPackages": {}
       },
